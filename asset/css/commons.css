@@ -1,0 +1,947 @@
+/* ============================================================
+   common.css  |  Washfactory Design System
+   Last updated: 2025
+   ============================================================
+   Index
+   01. Font Face
+   02. Design Tokens  (:root 변수)
+   03. Reset & Base
+   04. Typography
+   05. Button
+   06. Input / Form
+   07. Card
+   08. Badge
+   09. Divider
+   10. Layout Utility  (container · flex · grid · gap)
+   11. Spacing Utility  (margin · padding)
+   12. Text Utility
+   13. Background Utility
+   14. Section 공통 구조
+   15. Scroll Utility
+   16. Visibility Utility
+   17. Responsive Breakpoints
+   ============================================================ */
+
+
+/* ============================================================
+   01. Font Face
+   ============================================================ */
+
+/* RixInooAriDuri — H1 Display 전용 */
+@font-face {
+    font-family: 'RixInuaridurine';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* Pretendard */
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+/* ============================================================
+   02. Design Tokens
+   ============================================================ */
+:root {
+
+  /* --------------------------------------------------
+     Color — Main
+     -------------------------------------------------- */
+  --color-main-1: #0AC290;    /* Rgb(10,194,144)   Hsl(164,90,40)  — 핵심 브랜드 컬러 */
+  --color-main-2: #53D4B1;    /* Rgb(83,212,177)   Hsl(164,60,58)  */
+  --color-main-3: #9CF9E0;    /* Rgb(156,249,224)  Hsl(164,37,98)  */
+
+  /* --------------------------------------------------
+     Color — Accent (Green)
+     -------------------------------------------------- */
+  --color-accent-1: #5EE8C2;  /* Rgb(94,232,194)   Hsl(163,59,91)  */
+  --color-accent-2: #6EE4C3;  /* Rgb(110,228,195)  Hsl(163,52,89)  */
+  --color-accent-3: #09FFBA;  /* Rgb(9,255,186)    Hsl(163,95,100) */
+  --color-accent-4: #8FFFE0;  /* Rgb(143,255,224)  Hsl(163,44,100) */
+  --color-accent-5: #D4F9F0;  /* Rgb(212,249,240)  Hsl(165,15,98)  */
+  --color-accent-6: #D6FFF4;  /* Rgb(214,255,244)  Hsl(164,16,100) */
+
+  /* --------------------------------------------------
+     Color — Gray
+     -------------------------------------------------- */
+  --color-gray-1: #313131;    /* Rgb(49,49,49)     Hsl(0,0,19)   — 기본 텍스트   */
+  --color-gray-2: #747474;    /* Rgb(116,116,116)  Hsl(0,0,45)   — 보조 텍스트   */
+  --color-gray-3: #A2A2A2;    /* Rgb(162,162,162)  Hsl(0,0,64)   — 비활성 텍스트 */
+  --color-gray-4: #BEBEBE;    /* Rgb(190,190,190)  Hsl(0,0,75)   — placeholder   */
+  --color-gray-5: #D9D9D9;    /* Rgb(217,217,217)  Hsl(0,0,85)   — 보더 기본     */
+  --color-gray-6: #F5F6F7;    /* Rgb(245,246,247)  Hsl(210,1,97) — 배경 서브      */
+
+  /* --------------------------------------------------
+     Color — Second
+     -------------------------------------------------- */
+  --color-second-1: #377B68;  /* Rgb(55,123,104)   Hsl(163,55,48) — 다크 그린 */
+  --color-second-2: #F9D4D4;  /* Rgb(249,212,212)  Hsl(0,15,98)   — 연핑크    */
+
+  /* --------------------------------------------------
+     Color — Semantic
+     -------------------------------------------------- */
+  --color-error:   #E74C3C;
+  --color-success: var(--color-main-1);
+  --color-white:   #ffffff;
+
+  /* --------------------------------------------------
+     Font Family
+     -------------------------------------------------- */
+  --font-display: 'RixInooAriDuri', sans-serif;
+  --font-base:    'Pretendard', -apple-system, BlinkMacSystemFont,
+                  'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+
+  /* --------------------------------------------------
+     Font Size  (스타일 가이드 기준)
+     -------------------------------------------------- */
+  --fs-h1: 96px;   /* H1 — RixInooAriDuri  400 */
+  --fs-h2: 48px;   /* H2 — Pretendard       700 */
+  --fs-h3: 40px;   /* H3 — Pretendard       700 */
+  --fs-h4: 34px;   /* H4 — Pretendard       700 */
+  --fs-h5: 30px;   /* H5 — Pretendard       400 */
+  --fs-b1: 22px;   /* B1 — Pretendard       400 */
+  --fs-b2: 18px;   /* B2 — Pretendard       400 */
+  --fs-b3: 16px;   /* B3 — Pretendard       400  (body 기본) */
+  --fs-b4: 14px;   /* B4 — Pretendard       700 / 400 */
+
+  /* --------------------------------------------------
+     Font Weight
+     -------------------------------------------------- */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* --------------------------------------------------
+     Line Height
+     -------------------------------------------------- */
+  --lh-tight:  1.2;
+  --lh-snug:   1.35;
+  --lh-normal: 1.6;
+  --lh-loose:  1.75;
+
+  /* --------------------------------------------------
+     Border Radius
+     -------------------------------------------------- */
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-card:  16px;
+  --radius-input: 12px;
+  --radius-btn:   50px;
+  --radius-full:  9999px;
+
+  /* --------------------------------------------------
+     Transition
+     -------------------------------------------------- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.35s ease;
+
+  /* --------------------------------------------------
+     Shadow
+     -------------------------------------------------- */
+  --shadow-sm:   0 2px 8px  rgba(0, 0, 0, 0.06);
+  --shadow-md:   0 4px 16px rgba(0, 0, 0, 0.09);
+  --shadow-lg:   0 8px 28px rgba(0, 0, 0, 0.12);
+  --shadow-mint: 0 8px 24px rgba(10, 194, 144, 0.18);
+
+  /* --------------------------------------------------
+     Z-index
+     -------------------------------------------------- */
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:    10;
+  --z-dropdown:  100;
+  --z-sticky:    200;
+  --z-overlay:   300;
+  --z-modal:     400;
+  --z-toast:     500;
+}
+
+
+/* ============================================================
+   03. Reset & Base
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--fs-b3);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+  color: var(--color-gray-1);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+svg {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  font-family: var(--font-base);
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-base);
+  outline: none;
+}
+
+
+/* ============================================================
+   04. Typography
+   ============================================================ */
+
+/* ---- Heading ---- */
+
+/* H1 | RixInooAriDuri 96px 400 */
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+/* H2 | Pretendard 48px 700 */
+h2, .h2 {
+  font-family: var(--font-base);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+}
+
+/* H3 | Pretendard 40px 700 */
+h3, .h3 {
+  font-family: var(--font-base);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
+}
+
+/* H4 | Pretendard 34px 700 */
+h4, .h4 {
+  font-family: var(--font-base);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-snug);
+}
+
+/* H4 Regular variant | Pretendard 34px 400 */
+.h4-regular {
+  font-family: var(--font-base);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+}
+
+/* H5 | Pretendard 30px 400 */
+h5, .h5 {
+  font-family: var(--font-base);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+}
+
+/* ---- Body ---- */
+
+/* B1 | 22px 400 */
+.b1 {
+  font-family: var(--font-base);
+  font-size: var(--fs-b1);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+}
+
+/* B2 | 18px 400 */
+.b2 {
+  font-family: var(--font-base);
+  font-size: var(--fs-b2);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+}
+
+/* B3 | 16px 400 — body 기본값과 동일 */
+p, .b3 {
+  font-family: var(--font-base);
+  font-size: var(--fs-b3);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-1);
+}
+
+/* B4 Bold | 14px 700 — 레이블, 강조 캡션 */
+.b4 {
+  font-family: var(--font-base);
+  font-size: var(--fs-b4);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-normal);
+}
+
+/* B4 Regular | 14px 400 — 일반 캡션 */
+.b4-regular {
+  font-family: var(--font-base);
+  font-size: var(--fs-b4);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-normal);
+}
+
+
+/* ============================================================
+   05. Button
+   ============================================================ */
+
+/* Base — 모든 버튼 공통 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-base);
+  font-size: var(--fs-b3);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-btn);
+  padding: 14px 32px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-base),
+    border-color     var(--transition-base),
+    color            var(--transition-base),
+    opacity          var(--transition-base);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Primary — #53D4B1 배경 */
+.btn-primary {
+  background-color: var(--color-main-2);
+  color: var(--color-white);
+  border-color: transparent;
+}
+.btn-primary:hover  { background-color: var(--color-main-1); }
+.btn-primary:active { opacity: 0.85; }
+
+/* Outline — 테두리형 */
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-main-1);
+  border-color: var(--color-main-2);
+}
+.btn-outline:hover {
+  background-color: var(--color-accent-5);
+  border-color: var(--color-main-1);
+}
+
+/* Dark — 진한 그린 */
+.btn-dark {
+  background-color: var(--color-second-1);
+  color: var(--color-white);
+  border-color: transparent;
+}
+.btn-dark:hover { opacity: 0.85; }
+
+/* Ghost — 회색 테두리 */
+.btn-ghost {
+  background-color: transparent;
+  color: var(--color-gray-2);
+  border-color: var(--color-gray-5);
+}
+.btn-ghost:hover { background-color: var(--color-gray-6); }
+
+/* Size — Small */
+.btn-sm {
+  font-size: var(--fs-b4);
+  padding: 10px 20px;
+}
+
+/* Size — Large */
+.btn-lg {
+  font-size: var(--fs-b2);
+  padding: 18px 40px;
+}
+
+/* Full Width */
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+
+/* ============================================================
+   06. Input / Form
+   ============================================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+input[type="search"],
+input[type="url"],
+textarea,
+select {
+  font-family: var(--font-base);
+  font-size: var(--fs-b3);
+  font-weight: var(--fw-regular);
+  color: var(--color-gray-1);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-gray-5);
+  border-radius: var(--radius-input);
+  padding: 13px 16px;
+  width: 100%;
+  transition:
+    border-color var(--transition-base),
+    box-shadow   var(--transition-base);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-gray-4);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-main-2);
+  box-shadow: 0 0 0 3px rgba(83, 212, 177, 0.18);
+}
+
+input:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: var(--color-gray-6);
+  color: var(--color-gray-3);
+  cursor: not-allowed;
+}
+
+/* 에러 상태 */
+.input-error {
+  border-color: var(--color-error) !important;
+}
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15) !important;
+}
+
+.input-error-msg {
+  display: block;
+  margin-top: 6px;
+  font-size: var(--fs-b4);
+  color: var(--color-error);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: var(--lh-normal);
+}
+
+label {
+  display: block;
+  font-size: var(--fs-b4);
+  font-weight: var(--fw-bold);
+  color: var(--color-gray-1);
+  margin-bottom: 8px;
+}
+
+
+/* ============================================================
+   07. Card
+   ============================================================ */
+
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-5);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+  transition:
+    box-shadow var(--transition-base),
+    transform  var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-mint);
+  transform: translateY(-3px);
+}
+
+/* 회색 배경 카드 */
+.card-gray {
+  background-color: var(--color-gray-6);
+  border: none;
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+}
+
+/* 민트 배경 카드 */
+.card-mint {
+  background-color: var(--color-accent-5);
+  border: none;
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+}
+
+/* hover 효과 없는 정적 카드 */
+.card-static {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-5);
+  border-radius: var(--radius-card);
+  padding: 28px 24px;
+}
+
+
+/* ============================================================
+   08. Badge
+   ============================================================ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-base);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.badge-primary { background-color: var(--color-main-1);   color: var(--color-white); }
+.badge-main2   { background-color: var(--color-main-2);   color: var(--color-white); }
+.badge-light   { background-color: var(--color-accent-5); color: var(--color-main-1); }
+.badge-dark    { background-color: var(--color-second-1); color: var(--color-white); }
+.badge-gray    { background-color: var(--color-gray-6);   color: var(--color-gray-2); }
+.badge-outline {
+  background-color: transparent;
+  border: 1.5px solid var(--color-main-1);
+  color: var(--color-main-1);
+}
+
+
+/* ============================================================
+   09. Divider
+   ============================================================ */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-gray-5);
+  border: none;
+}
+
+.divider-bold {
+  height: 2px;
+  background-color: var(--color-gray-1);
+}
+
+.divider-mint {
+  height: 2px;
+  background-color: var(--color-main-1);
+}
+
+
+/* ============================================================
+   10. Layout Utility
+   ============================================================ */
+
+/* ---- Container ---- */
+.container    { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: 40px; }
+.container-sm { width: 100%; max-width: 800px;  margin-inline: auto; padding-inline: 40px; }
+.container-md { width: 100%; max-width: 1024px; margin-inline: auto; padding-inline: 40px; }
+.container-lg { width: 100%; max-width: 1440px; margin-inline: auto; padding-inline: 40px; }
+
+/* ---- Flex ---- */
+.flex         { display: flex; }
+.flex-col     { display: flex; flex-direction: column; }
+.flex-center  { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-start   { display: flex; align-items: center; justify-content: flex-start; }
+.flex-end     { display: flex; align-items: center; justify-content: flex-end; }
+.flex-wrap    { flex-wrap: wrap; }
+.items-start  { align-items: flex-start; }
+.items-center { align-items: center; }
+.items-end    { align-items: flex-end; }
+.flex-1       { flex: 1; }
+
+/* ---- Gap ---- */
+.gap-4  { gap: 4px; }
+.gap-8  { gap: 8px; }
+.gap-12 { gap: 12px; }
+.gap-16 { gap: 16px; }
+.gap-20 { gap: 20px; }
+.gap-24 { gap: 24px; }
+.gap-32 { gap: 32px; }
+.gap-40 { gap: 40px; }
+.gap-48 { gap: 48px; }
+
+/* ---- Grid ---- */
+.grid   { display: grid; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+
+/* ============================================================
+   11. Spacing Utility
+   ============================================================ */
+
+/* Margin Top */
+.mt-4  { margin-top: 4px; }   .mt-8  { margin-top: 8px; }
+.mt-12 { margin-top: 12px; }  .mt-16 { margin-top: 16px; }
+.mt-20 { margin-top: 20px; }  .mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }  .mt-40 { margin-top: 40px; }
+.mt-48 { margin-top: 48px; }  .mt-64 { margin-top: 64px; }
+.mt-80 { margin-top: 80px; }
+
+/* Margin Bottom */
+.mb-4  { margin-bottom: 4px; }   .mb-8  { margin-bottom: 8px; }
+.mb-12 { margin-bottom: 12px; }  .mb-16 { margin-bottom: 16px; }
+.mb-20 { margin-bottom: 20px; }  .mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }  .mb-40 { margin-bottom: 40px; }
+.mb-48 { margin-bottom: 48px; }  .mb-64 { margin-bottom: 64px; }
+.mb-80 { margin-bottom: 80px; }
+
+/* Padding Top */
+.pt-40  { padding-top: 40px; }   .pt-60  { padding-top: 60px; }
+.pt-80  { padding-top: 80px; }   .pt-100 { padding-top: 100px; }
+.pt-120 { padding-top: 120px; }
+
+/* Padding Bottom */
+.pb-40  { padding-bottom: 40px; }   .pb-60  { padding-bottom: 60px; }
+.pb-80  { padding-bottom: 80px; }   .pb-100 { padding-bottom: 100px; }
+.pb-120 { padding-bottom: 120px; }
+
+/* Padding Y (상하 동시) */
+.py-40  { padding-top: 40px;  padding-bottom: 40px; }
+.py-60  { padding-top: 60px;  padding-bottom: 60px; }
+.py-80  { padding-top: 80px;  padding-bottom: 80px; }
+.py-100 { padding-top: 100px; padding-bottom: 100px; }
+.py-120 { padding-top: 120px; padding-bottom: 120px; }
+
+
+/* ============================================================
+   12. Text Utility
+   ============================================================ */
+
+.text-center  { text-align: center; }
+.text-left    { text-align: left; }
+.text-right   { text-align: right; }
+
+.text-main    { color: var(--color-main-1); }
+.text-dark    { color: var(--color-gray-1); }
+.text-mid     { color: var(--color-gray-2); }
+.text-muted   { color: var(--color-gray-3); }
+.text-white   { color: var(--color-white); }
+.text-second  { color: var(--color-second-1); }
+.text-error   { color: var(--color-error); }
+
+.fw-regular   { font-weight: var(--fw-regular); }
+.fw-medium    { font-weight: var(--fw-medium); }
+.fw-semibold  { font-weight: var(--fw-semibold); }
+.fw-bold      { font-weight: var(--fw-bold); }
+
+/* 말줄임 */
+.truncate {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ============================================================
+   13. Background Utility
+   ============================================================ */
+
+.bg-white    { background-color: var(--color-white); }
+.bg-gray     { background-color: var(--color-gray-6); }
+.bg-main-1   { background-color: var(--color-main-1); }
+.bg-main-2   { background-color: var(--color-main-2); }
+.bg-main-3   { background-color: var(--color-main-3); }
+.bg-accent-5 { background-color: var(--color-accent-5); }
+.bg-accent-6 { background-color: var(--color-accent-6); }
+.bg-second-1 { background-color: var(--color-second-1); }
+.bg-second-2 { background-color: var(--color-second-2); }
+.bg-dark     { background-color: var(--color-gray-1); }
+
+
+/* ============================================================
+   14. Section 공통 구조
+   ============================================================ */
+
+.section    { padding-top: 100px; padding-bottom: 100px; }
+.section-sm { padding-top: 60px;  padding-bottom: 60px; }
+.section-lg { padding-top: 140px; padding-bottom: 140px; }
+
+.section-header        { margin-bottom: 56px; }
+.section-header.center { text-align: center; }
+
+/* 섹션 상단 뱃지 레이블 */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--color-accent-5);
+  color: var(--color-main-1);
+  font-family: var(--font-base);
+  font-size: 13px;
+  font-weight: var(--fw-bold);
+  padding: 6px 18px;
+  border-radius: var(--radius-full);
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+.section-title {
+  font-family: var(--font-base);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--color-gray-1);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  font-family: var(--font-base);
+  font-size: var(--fs-b2);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-loose);
+  color: var(--color-gray-2);
+}
+
+
+/* ============================================================
+   15. Scroll Utility
+   ============================================================ */
+
+/* 스티키 헤더 사용 시 앵커 링크 위치 보정 */
+[id] { scroll-margin-top: 80px; }
+
+/* 가로 스크롤 래퍼 (스크롤바 숨김) */
+.scroll-x {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.scroll-x::-webkit-scrollbar { display: none; }
+
+
+/* ============================================================
+   16. Visibility Utility
+   ============================================================ */
+
+.hidden    { display: none !important; }
+.invisible { visibility: hidden; }
+
+/* 스크린 리더 전용 (접근성) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ============================================================
+   17. Responsive Breakpoints
+   ============================================================ */
+
+/* Tablet — 1024px 이하 */
+@media (max-width: 1024px) {
+
+  .container,
+  .container-md,
+  .container-lg { padding-inline: 24px; }
+
+  .section    { padding-top: 80px;  padding-bottom: 80px; }
+  .section-lg { padding-top: 100px; padding-bottom: 100px; }
+
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile Large — 768px 이하 */
+@media (max-width: 768px) {
+
+  :root {
+    --fs-h1: 48px;
+    --fs-h2: 32px;
+    --fs-h3: 28px;
+    --fs-h4: 24px;
+    --fs-h5: 22px;
+    --fs-b1: 18px;
+    --fs-b2: 16px;
+  }
+
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg { padding-inline: 20px; }
+
+  .section    { padding-top: 60px;  padding-bottom: 60px; }
+  .section-sm { padding-top: 40px;  padding-bottom: 40px; }
+  .section-lg { padding-top: 80px;  padding-bottom: 80px; }
+
+  .section-header { margin-bottom: 36px; }
+
+  .grid-4,
+  .grid-3,
+  .grid-2 { grid-template-columns: 1fr; }
+
+  .flex-between { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+/* Mobile Small — 480px 이하 */
+@media (max-width: 480px) {
+
+  :root {
+    --fs-h1: 36px;
+    --fs-h2: 26px;
+    --fs-h3: 22px;
+    --fs-h4: 20px;
+    --fs-h5: 18px;
+  }
+
+  .container,
+  .container-sm { padding-inline: 16px; }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-dark {
+    width: 100%;
+    justify-content: center;
+  }
+}

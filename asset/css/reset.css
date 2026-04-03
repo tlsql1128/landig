@@ -1,0 +1,55 @@
+/* 모든 요소 초기화 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* html 기본 설정 */
+html {
+  font-size: 16px;
+}
+
+/* body 설정 */
+body {
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 리스트 제거 */
+ul, ol {
+  list-style: none;
+}
+
+/* 링크 */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 이미지 */
+img, picture, video, canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* 폼 요소 */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 버튼 */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* 테이블 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
